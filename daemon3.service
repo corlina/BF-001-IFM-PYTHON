@@ -1,0 +1,15 @@
+[Unit]
+Description=IO-Link HTTP monitoring service
+After=syslog.target influxdb.target
+
+[Service]
+Type=simple
+User=localhost
+Group=localhost
+WorkingDirectory=/home/localhost/
+ExecStart=/usr/bin/python3 /home/localhost/sensormgr/daemon3.py
+StandardOutput=syslog
+StandardError=syslog
+
+[Install]
+WantedBy=multi-user.target
